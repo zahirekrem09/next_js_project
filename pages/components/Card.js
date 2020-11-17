@@ -6,32 +6,32 @@ const Card = ({ chr }) => {
   return (
     <article className={styles.characterCardWrapper}>
       <div className={styles.characterCardImgWrapper}>
-        <img src={chr.image} alt={chr.name} />
+        <img src={chr?.image} alt={chr?.name} />
       </div>
       <div className={styles.characterCardContentWrapper}>
         <div className={styles.section}>
           <a
-            href="https://rickandmortyapi.com/api/character/10"
+            href={chr?.url}
             rel="nofollow noopener noreferrer"
             target="_blank"
             className={styles.link}
           >
-            <h2 className="">{chr.name}</h2>
+            <h2 className="">{chr?.name}</h2>
           </a>
           <span className="styles.status">
             <span className="styles.statusicon"></span>
-            {chr.status}-{chr.species}
+            {chr?.status}-{chr?.species}
           </span>
         </div>
         <div className={styles.section}>
           <span className={styles.textgray}>Last known location:</span>
           <a
-            href={chr.location.url}
+            href={chr?.location.url}
             rel="nofollow noopener noreferrer"
             target="_blank"
             className={styles.link}
           >
-            {chr.location.name}
+            {chr?.location.name}
           </a>
         </div>
         {/* <div className={styles.section}>
