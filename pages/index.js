@@ -35,6 +35,11 @@ function HomePage({ characters }) {
           }
         `}
       </style> */}
+
+      {/* <Link
+              href="/character/[slug]"
+              as={`/character/${slug(chr.name)}-${chr.id}`}
+            ></Link> */}
       <h1>The Rick and Morty API</h1>
       <CardList data={characters.results} />
     </Layout>

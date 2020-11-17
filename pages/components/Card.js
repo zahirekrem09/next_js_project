@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import slug from "slug";
 import styles from "./card.module.css";
 
 const Card = ({ chr }) => {
@@ -16,7 +17,14 @@ const Card = ({ chr }) => {
             target="_blank"
             className={styles.link}
           >
-            <h2 className="">{chr?.name}</h2>
+            <Link
+              href="/character/[slug]"
+              as={`/character/${slug(chr.name)}-${chr.id}`}
+            >
+              <a className={styles.link}>
+                <h2 className="">{chr?.name}</h2>
+              </a>
+            </Link>
           </a>
           <span className="styles.status">
             <span className="styles.statusicon"></span>
@@ -46,6 +54,11 @@ const Card = ({ chr }) => {
           </a>
         </div> */}
       </div>
+
+      {/* <Link
+              href="/character/[slug]"
+              as={`/character/${slug(chr.name)}-${chr.id}`}
+            ></Link> */}
     </article>
   );
 };
