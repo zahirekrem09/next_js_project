@@ -3,6 +3,8 @@ import unfetch from "isomorphic-unfetch";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import slug from "slug";
+import Card from "./components/Card";
+import CardList from "./components/CardList";
 
 function HomePage({ characters }) {
   return (
@@ -10,8 +12,18 @@ function HomePage({ characters }) {
       {/* scope css */}
       <style jsx>
         {`
-          li {
-            color: white;
+          h1 {
+            margin-top: 30px;
+            color: rgb(32, 35, 41);
+            border: none;
+            font-weight: 900;
+            z-index: 1;
+            font-size: 5.625rem;
+            text-align: center;
+            transition: 0.2s;
+          }
+          h1:hover {
+            color: tomato;
           }
         `}
       </style>
@@ -23,20 +35,8 @@ function HomePage({ characters }) {
           }
         `}
       </style> */}
-      <h1>Welcome to Next.js!</h1>
-      <ul>
-        {characters?.results?.map((chr, i) => (
-          <li key={chr.id}>
-            {" "}
-            <Link
-              href="/character/[slug]"
-              as={`/character/${slug(chr.name)}-${chr.id}`}
-            >
-              <a>{chr.name}</a>
-            </Link>
-          </li>
-        ))}
-      </ul>
+      <h1>The Rick and Morty API</h1>
+      <CardList data={characters.results} />
     </Layout>
   );
 }

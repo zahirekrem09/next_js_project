@@ -1,0 +1,79 @@
+.showcaseWrapper {
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+  padding: 4.5rem 0px;
+  /*  */
+  min-height: calc(50vh - 60px);
+}
+
+.showcaseInner {
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 1920px;
+}
+
+.characterCardWrapper {
+  width: 600px;
+  height: 220px;
+  display: flex;
+  overflow: hidden;
+  background: rgb(60, 62, 68);
+  border-radius: 0.5rem;
+  margin: 0.75rem;
+  box-shadow: tomato 0px 4px 6px -1px, tomato 0px 2px 4px -1px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.characterCardWrapper:hover {
+  transform: scale(1.02);
+  box-shadow: 0.3rem 0.3rem 0.9rem rgba(0, 0, 0, 0.1);
+}
+.characterCardImgWrapper {
+  flex: 2 1 0%;
+  width: 100%;
+}
+.characterCardImgWrapper img {
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  opacity: 1;
+  transition: opacity 0.5s ease 0s;
+  object-position: center center;
+  object-fit: cover;
+}
+
+.characterCardContentWrapper {
+  flex: 3 1 0%;
+  position: relative;
+  padding: 0.75rem;
+  color: rgb(255, 255, 255);
+  display: flex;
+  flex-direction: column;
+}
+.section {
+  flex: 1 1 0%;
+  display: flex;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  justify-content: center;
+}
+.textgray {
+  color: rgb(158, 158, 158);
+  font-size: 16px;
+  font-weight: 500;
+}
+.link {
+  color: rgb(245, 245, 245);
+  text-decoration: none;
+  background-color: transparent;
+}
+.link:hover {
+  color: tomato;
+}
