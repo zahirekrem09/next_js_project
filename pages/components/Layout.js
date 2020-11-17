@@ -12,7 +12,7 @@ const Layout = ({ children, title }) => {
       </Head>
       <Navbar />
       <main>{children}</main>
-      <footer>By eko</footer>
+      {/* <footer>By eko</footer> */}
     </div>
   );
 };
