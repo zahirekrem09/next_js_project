@@ -1,12 +1,31 @@
+import { useEffect, useState } from "react";
+import useSWR from "swr";
+
 import Layout from "./components/Layout";
 import unfetch from "isomorphic-unfetch";
-import Link from "next/link";
-import { useRouter } from "next/router";
-import slug from "slug";
-import Card from "./components/Card";
+
 import CardList from "./components/CardList";
 
+const API_URL = "https://rickandmortyapi.com/api/character/?page=";
+async function fetcher(page = 1) {
+  const res = await fetch(API_URL + page);
+  const json = await res.json();
+  return json;
+}
+
 function HomePage({ characters }) {
+  const [page, setPage] = useState(1);
+
+  const { data, error } = useSWR(page, fetcher);
+  const [dataList, setDataList] = useState([]);
+
+  // useEffect(() => {
+  //   setDataList([...dataList, data.results]);
+  // }, []);
+
+  const more = () => {
+    null;
+  };
   return (
     <Layout title="Home">
       {/* scope css */}
@@ -41,7 +60,9 @@ function HomePage({ characters }) {
               as={`/character/${slug(chr.name)}-${chr.id}`}
             ></Link> */}
       <h1>The Rick and Morty API</h1>
-      <CardList data={characters.results} />
+      <CardList data={data?.results} more={more} />
+
+      <button onClick={() => setPage(page + 1)}>load More </button>
     </Layout>
   );
 }

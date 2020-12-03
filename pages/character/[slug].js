@@ -5,6 +5,9 @@ import { useRouter } from "next/router";
 import slug from "slug";
 
 function Detail({ character }) {
+  const router = useRouter()
+  const {params} = router
+console.log(params);
   return (
     <Layout title="Detail">
       <div>

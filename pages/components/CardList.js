@@ -5,10 +5,10 @@ import Card from "./Card";
 
 const CardList = ({ data }) => {
   return (
-    <section class={styles.showcaseWrapper}>
-      <div class={styles.showcaseInner}>
+    <section className={styles.showcaseWrapper}>
+      <div className={styles.showcaseInner}>
         {data?.map((chr) => (
-          <Card chr={chr} />
+          <Card key={chr.id} chr={chr} />
         ))}
       </div>
     </section>
